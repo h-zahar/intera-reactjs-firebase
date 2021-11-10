@@ -14,7 +14,6 @@ const Register = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
         const { fullName, email, password, checkPassword } = data;
         if (password !== checkPassword) {
             return window.alert(`Password Didn't Match!!!`);

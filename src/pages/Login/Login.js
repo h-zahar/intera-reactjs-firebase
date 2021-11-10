@@ -14,7 +14,6 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
         const { email, password } = data;
 
         loginWithMail(email, password, history, redirected_uri);
