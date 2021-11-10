@@ -20,6 +20,7 @@ const Header = () => {
                 <Nav className="ms-auto">
                 <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
                 <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
                 </Nav>
                 </Container>
             </Navbar>

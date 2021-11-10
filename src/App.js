@@ -25,6 +25,10 @@ function App() {
               <Login />
             </Route>
 
+            <Route path="/register">
+              <Login />
+            </Route>
+
           </Switch>
           <Footer />
         </Router>

@@ -8,11 +8,17 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const accessWithGoogle = () => {
+    const accessWithGoogle = (history, redirected_uri) => {
         setIsLoading(true);
         const provider = new GoogleAuthProvider();
 
-        return signInWithPopup(auth, provider);
+        signInWithPopup(auth, provider)
+        .then(result => {
+            setUser(result.user);
+            history.push(redirected_uri);
+        })
+        .catch(() => { })
+        .finally(() => setIsLoading(false));
     }
 
     useEffect(() => {
