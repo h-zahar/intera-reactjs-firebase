@@ -3,21 +3,27 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home/Home/Home';
 import Header from './pages/Shared/Header/Header';
 import Footer from './pages/Shared/Footer/Footer';
+import AuthProvider from './contexts/AuthProvider';
+import initializeAuth from './firebase/firebase.init';
+
+initializeAuth();
 
 function App() {
   return (
     <>
-      <Router>
-        <Header />
-        <Switch>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-        </Switch>
-        <Footer />
-      </Router>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </>
   );
 }
