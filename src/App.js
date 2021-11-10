@@ -6,6 +6,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import AuthProvider from './contexts/AuthProvider';
 import initializeAuth from './firebase/firebase.init';
 import Login from './pages/Login/Login';
+import Explore from './pages/Explore/Explore';
 
 initializeAuth();
 
@@ -19,6 +20,10 @@ function App() {
 
             <Route exact path="/">
               <Home />
+            </Route>
+
+            <Route path="/explore">
+              <Explore />
             </Route>
 
             <Route path="/login">
