@@ -7,6 +7,7 @@ import AuthProvider from './contexts/AuthProvider';
 import initializeAuth from './firebase/firebase.init';
 import Login from './pages/Login/Login';
 import Explore from './pages/Explore/Explore';
+import Register from './pages/Register/Register';
 
 initializeAuth();
 
@@ -31,7 +32,7 @@ function App() {
             </Route>
 
             <Route path="/register">
-              <Login />
+              <Register/>
             </Route>
 
           </Switch>
