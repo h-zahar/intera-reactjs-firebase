@@ -1,5 +1,5 @@
 
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 const useFirebase = () => {
@@ -19,7 +19,34 @@ const useFirebase = () => {
         })
         .catch(() => { })
         .finally(() => setIsLoading(false));
-    }
+    };
+
+    const registerWithMail = (fullName, email, password, history, redirected_uri) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            result.user.displayName = fullName;
+            console.log(result.user);
+            setUser(result.user);
+            history.push(redirected_uri);
+        })
+        .catch(() => {  })
+        .finally(() => {
+            setIsLoading(false);
+            console.log(user);
+        });
+    };
+
+    const loginWithMail = (email, password, history, redirected_uri) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            setUser(result.user);
+            history.push(redirected_uri);
+        })
+        .catch(() => {  })
+        .finally(() => setIsLoading(false));
+    };
 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
@@ -32,7 +59,7 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, [auth, user]);
 
     const logOut = () => {
         setIsLoading(true);
@@ -46,6 +73,8 @@ const useFirebase = () => {
         isLoading,
         setUser,
         setIsLoading,
+        registerWithMail,
+        loginWithMail,
         accessWithGoogle,
         logOut
     }

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { accessWithGoogle } = useAuth();
+    const { accessWithGoogle, loginWithMail } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirected_uri = location.state?.from || '/';
@@ -14,7 +14,10 @@ const Login = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+        console.log(data);
+        const { email, password } = data;
+
+        loginWithMail(email, password, history, redirected_uri);
     };
 
     const handleAccessWithGoogle = () => {
@@ -34,7 +37,7 @@ const Login = () => {
                             <input className="px-2 mt-2 mb-3" placeholder="example@provider.com" type="email" {...register("email", { required: true })} />
 
                             <label><strong>Enter Passsword</strong></label>
-                            <input className="px-2 mt-2 mb-3" placeholder="Enter Password" type="password" {...register("password", { required: true })} />
+                            <input className="px-2 mt-2 mb-3" placeholder="Drop your password :D" type="password" {...register("password", { required: true })} />
 
                             <div className="mx-auto"><input className="my-3" type="submit" value="Login" /></div>
                             <div>

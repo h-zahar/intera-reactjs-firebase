@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { accessWithGoogle } = useAuth();
+    const { accessWithGoogle, registerWithMail } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirected_uri = location.state?.from || '/';
@@ -14,7 +14,13 @@ const Register = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+        console.log(data);
+        const { fullName, email, password, checkPassword } = data;
+        if (password !== checkPassword) {
+            return window.alert(`Password Didn't Match!!!`);
+        }
+
+        registerWithMail(fullName, email, password, history, redirected_uri);
     };
 
     const handleAccessWithGoogle = () => {
@@ -36,6 +42,9 @@ const Register = () => {
 
                             <label><strong>Set Passsword</strong></label>
                             <input className="px-2 mt-2 mb-3" placeholder="Set a strong one!" type="password" {...register("password", { required: true })} />
+
+                            <label><strong>Re-Enter Passsword</strong></label>
+                            <input className="px-2 mt-2 mb-3" placeholder="Type your original again!" type="password" {...register("checkPassword", { required: true })} />
 
                             <div className="mx-auto"><input className="my-3" type="submit" value="Register" /></div>
                             <div>
