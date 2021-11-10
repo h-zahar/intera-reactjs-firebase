@@ -5,7 +5,7 @@ import Header from './pages/Shared/Header/Header';
 import Footer from './pages/Shared/Footer/Footer';
 import AuthProvider from './contexts/AuthProvider';
 import initializeAuth from './firebase/firebase.init';
-import Login from './pages/Shared/Login/Login';
+import Login from './pages/Login/Login';
 
 initializeAuth();
 
