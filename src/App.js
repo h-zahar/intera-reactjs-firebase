@@ -5,6 +5,7 @@ import Header from './pages/Shared/Header/Header';
 import Footer from './pages/Shared/Footer/Footer';
 import AuthProvider from './contexts/AuthProvider';
 import initializeAuth from './firebase/firebase.init';
+import Login from './pages/Shared/Login/Login';
 
 initializeAuth();
 
@@ -18,6 +19,10 @@ function App() {
 
             <Route exact path="/">
               <Home />
+            </Route>
+
+            <Route path="/login">
+              <Login />
             </Route>
 
           </Switch>
