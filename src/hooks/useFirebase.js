@@ -1,4 +1,4 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 const useFirebase = () => {
@@ -20,12 +20,22 @@ const useFirebase = () => {
         .finally(() => setIsLoading(false));
     };
 
+    const updateDetailsOnForm = (name) => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+          })
+          .then(() => {  })
+          .catch((error) => {  });
+    }
+
     const registerWithMail = (fullName, email, password, history, redirected_uri) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
-            result.user.displayName = fullName;
-            setUser(result.user);
+            const newUser = {...result.user};
+            newUser.displayName = fullName;
+            setUser(newUser);
+            updateDetailsOnForm(fullName);
             history.push(redirected_uri);
         })
         .catch(() => {  })
@@ -54,13 +64,13 @@ const useFirebase = () => {
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [auth, user]);
+    }, []);
 
     const logOut = () => {
         setIsLoading(true);
         
         signOut(auth)
-        .then(() => {  })
+        .then(() => { setUser({}) })
         .finally(() => setIsLoading(false));
     }
 
