@@ -12,7 +12,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand as={NavLink} exact to="/">
                         <img
-                            alt=""
+                            alt="Intera"
                             src={logo}
                             width="120"
                             height="50"
