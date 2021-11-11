@@ -27,7 +27,7 @@ const Login = () => {
         <div>
             <div>
                 <Container>
-                    <div style={{width: '100%'}} className="my-4">
+                    <div style={{width: '100%'}} className="mb-4">
                         <form style={{maxWidth: '400px', minWidth: '250px'}} className="form-sizing d-flex flex-column py-4 px-5 mx-auto shadow-lg rounded" onSubmit={handleSubmit(onSubmit)}>
                             <h3 className="text-center mb-5 mt-4">Login</h3>
                             {/* <input {...register("fullName", { required: true })} />
