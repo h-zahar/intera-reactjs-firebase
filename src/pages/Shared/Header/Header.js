@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const { user, logOut } = useAuth();
+    const { user, isLoading, logOut } = useAuth();
     return (
         <div>
             <Navbar collapseOnSelect expand="md" bg="light" variant="light">
@@ -28,24 +28,24 @@ const Header = () => {
                             <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
 
                             {
-                                !user?.email &&
+                                (!isLoading && !user?.email) &&
                                 <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
                             }
 
                             {
-                                !user?.email &&
+                                (!isLoading && !user?.email) &&
                                 <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
                             }
 
                             {
-                                user?.email &&
+                                (!isLoading && user?.email) &&
                                 <div className="">
                                     <p className="my-2 mx-md-2 mx-0 text-success">{user?.displayName}</p>
                                 </div>
                             }
                             
                             {
-                                user?.email &&
+                                (!isLoading && user?.email) &&
                                 <div>
                                     <button className="my-md-0 my-2 py-md-1 ms-md-2 ms-0" onClick={logOut}>Logout</button>
                                 </div>
