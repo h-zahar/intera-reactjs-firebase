@@ -40,7 +40,7 @@ const Header = () => {
                             {
                                 (!isLoading && user?.email) &&
                                 <div className="">
-                                    <p className="my-2 mx-md-2 mx-0 text-success">{user?.displayName}</p>
+                                    <p className="my-2 mx-md-2 mx-0 text-success">Hello <span className="text-primary">{user?.displayName.split(' ')[0]}!</span></p>
                                 </div>
                             }
                             
