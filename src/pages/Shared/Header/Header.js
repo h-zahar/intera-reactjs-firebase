@@ -39,12 +39,16 @@ const Header = () => {
 
                             {
                                 user?.email &&
-                                <span>{user?.displayName}</span>
+                                <div className="">
+                                    <p className="my-2 mx-md-2 mx-0 text-success">{user?.displayName}</p>
+                                </div>
                             }
                             
                             {
                                 user?.email &&
-                                <button onClick={logOut}>Logout</button>
+                                <div>
+                                    <button className="my-md-0 my-2 py-md-1 ms-md-2 ms-0" onClick={logOut}>Logout</button>
+                                </div>
                             }
                         </Nav>
                     </Navbar.Collapse>
