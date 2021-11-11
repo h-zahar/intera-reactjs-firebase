@@ -3,12 +3,13 @@ import logo from '../../../logo.svg';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import './Header.css';
 
 const Header = () => {
     const { user, isLoading, logOut } = useAuth();
     return (
         <div>
-            <Navbar collapseOnSelect expand="md" bg="light" variant="light">
+            <Navbar className="bg-header" collapseOnSelect expand="md">
                 <Container>
                     <Navbar.Brand as={NavLink} exact to="/">
                         <img
