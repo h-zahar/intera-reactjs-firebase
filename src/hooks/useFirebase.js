@@ -7,6 +7,18 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
+    const sendToDatabase = (fetchMethod, fetchData) => {
+        fetch('http://localhost:5000/users', {
+            method: fetchMethod,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(fetchData)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data));
+    }
+
     const accessWithGoogle = (history, redirected_uri) => {
         setIsLoading(true);
         const provider = new GoogleAuthProvider();
@@ -14,6 +26,8 @@ const useFirebase = () => {
         signInWithPopup(auth, provider)
         .then(result => {
             setUser(result.user);
+            const putData = {fullName: result.user.displayName, email: result.user.email, isAdmin: false};
+            sendToDatabase('POST', putData);
             history.push(redirected_uri);
         })
         .catch(() => { })
@@ -36,6 +50,8 @@ const useFirebase = () => {
             newUser.displayName = fullName;
             setUser(newUser);
             updateDetailsOnForm(fullName);
+            const postData = {fullName: fullName, email: email, isAdmin: false};
+            sendToDatabase('POST', postData);
             history.push(redirected_uri);
         })
         .catch(() => {  })
@@ -70,7 +86,7 @@ const useFirebase = () => {
         setIsLoading(true);
         
         signOut(auth)
-        .then(() => { setUser({}) })
+        .then(() => {  })
         .finally(() => setIsLoading(false));
     }
 

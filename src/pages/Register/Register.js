@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { accessWithGoogle, registerWithMail } = useAuth();
+    const { user, accessWithGoogle, registerWithMail } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirected_uri = location.state?.from || '/';
@@ -20,17 +20,6 @@ const Register = () => {
         }
 
         registerWithMail(fullName, email, password, history, redirected_uri);
-        const postData = {fullName: fullName, email: email, isAdmin: false};
-
-        fetch('http://localhost:5000/users', {
-            method: 'Post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(postData)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data));
     };
 
     const handleAccessWithGoogle = () => {
