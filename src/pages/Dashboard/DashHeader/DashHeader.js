@@ -12,10 +12,10 @@ const DashHeader = ({ url }) => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
                             <div className="d-flex">
-                                <Nav.Link as={NavLink} exact to={`${url}/orders`}>My Orders</Nav.Link>
+                                <Nav.Link as={NavLink} exact to={`${url}/orders`}>Orders</Nav.Link>
                             </div>
                             <div className="d-flex">
-                                <Nav.Link as={NavLink} to={`${url}/review`}>My Revirew</Nav.Link>
+                                <Nav.Link as={NavLink} to={`${url}/review`}>Revirew</Nav.Link>
                             </div>
                             <div className="d-flex">
                                 <Nav.Link as={NavLink} to={`${url}/pay`}>Pay</Nav.Link>
