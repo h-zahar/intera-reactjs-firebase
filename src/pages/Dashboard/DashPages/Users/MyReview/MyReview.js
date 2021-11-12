@@ -1,10 +1,22 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 const MyReview = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
     return (
         <div>
-            <h2>hb</h2>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum quasi odit, delectus tenetur nulla quisquam dolore repellat porro magni quos iure exercitationem, optio excepturi minus laborum nostrum provident placeat! Similique.lorem
+            <Container>
+            <div style={{width: '100%'}} className="mb-4">
+                <form style={{maxWidth: '400px', minWidth: '250px'}} className="form-sizing d-flex flex-column py-4 px-5 mx-auto shadow-lg rounded" onSubmit={handleSubmit(onSubmit)}>
+                    <h3 className="text-center">Review</h3>
+                    <input placeholder="Give Rating" type="number" {...register("rating", { min: 0, max: 5 })} />
+                    <textarea placeholder="Write Feedback" {...register("feedback", { required: true})}/>
+                    <input type="submit" />
+                </form>
+            </div>
+            </Container>
         </div>
     )
 }

@@ -8,20 +8,17 @@ import initializeAuth from './firebase/firebase.init';
 import Login from './pages/Login/Login';
 import Explore from './pages/Explore/Explore';
 import Register from './pages/Register/Register';
-import Dashboard from './pages/Dashboard/Dashboard/DashRoutes';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import NotFound from './pages/NotFound/NotFound';
-import { useState } from 'react';
 
 initializeAuth();
 
 function App() {
-  const [dashState, setDashState] = useState(0);
-
   return (
     <>
       <AuthProvider>
         <Router>
-          <Header dashState={dashState} />
+          <Header />
           <Switch>
 
             <Route exact path="/">
@@ -41,7 +38,7 @@ function App() {
             </Route>
 
             <Route path="/dashboard">
-              <Dashboard setDashState={setDashState} />
+              <Dashboard />
             </Route>
 
             <Route path="*">
