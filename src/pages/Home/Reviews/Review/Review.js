@@ -1,10 +1,16 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 
 const Review = () => {
+    const { _id, fullName, feedback, rating } = props.review;
     return (
-        <div>
-            
-        </div>
+        <Col xs={12} sm={6} md={4} lg={3}>
+            <div>
+                <h5>{fullName}</h5>
+                <p>Rating: {rating}</p>
+                <p>{feedback}</p>
+            </div>
+        </Col>
     )
 }
 
