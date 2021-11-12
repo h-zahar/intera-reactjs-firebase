@@ -24,7 +24,7 @@ const Login = () => {
     }
     
     return (
-        <div>
+        <div style={{marginTop: '76.7px'}}>
             <div>
                 <Container>
                     <div style={{width: '100%'}} className="mb-4">

@@ -24,24 +24,32 @@ const Header = () => {
 
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
+                            <div className="d-flex">
+                                <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
+                            </div>
                             
-                            <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
-                            <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
+                            <div className="d-flex">
+                                <Nav.Link as={NavLink} to="/explore">Explore</Nav.Link>
+                            </div>
 
                             {
                                 (!isLoading && !user?.email) &&
-                                <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                                <div className="d-flex">
+                                    <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
+                                </div>
                             }
 
                             {
                                 (!isLoading && !user?.email) &&
-                                <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
+                                <div className="d-flex">
+                                    <Nav.Link as={NavLink} to="/register">Register</Nav.Link>
+                                </div>
                             }
 
                             {
                                 (!isLoading && user?.email) &&
                                 <div className="">
-                                    <p className="my-2 mx-md-2 mx-0 text-success">Hello <span className="text-primary">{user?.displayName.split(' ')[0]}!</span></p>
+                                    <p className="my-2 mx-md-2 mx-0 text-danger">Hello <span className="text-success">{user?.displayName.split(' ')[0]}!</span></p>
                                 </div>
                             }
                             
