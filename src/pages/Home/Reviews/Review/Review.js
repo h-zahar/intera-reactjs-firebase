@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-const Review = () => {
+const Review = (props) => {
     const { _id, fullName, feedback, rating } = props.review;
     return (
         <Col xs={12} sm={6} md={4} lg={3}>
