@@ -8,6 +8,8 @@ import initializeAuth from './firebase/firebase.init';
 import Login from './pages/Login/Login';
 import Explore from './pages/Explore/Explore';
 import Register from './pages/Register/Register';
+import Dashboard from './pages/Dashboard/Dashboard/DashRoutes';
+import NotFound from './pages/NotFound/NotFound';
 
 initializeAuth();
 
@@ -32,7 +34,15 @@ function App() {
             </Route>
 
             <Route path="/register">
-              <Register/>
+              <Register />
+            </Route>
+
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+
+            <Route path="*">
+              <NotFound />
             </Route>
 
           </Switch>
