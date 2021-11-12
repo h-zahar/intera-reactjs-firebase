@@ -55,7 +55,7 @@ const Header = () => {
 
                             {
                                 <div className="d-flex">
-                                    <Nav.Link as={NavLink} to='/dashboard/orders'>Dashboard</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/dashboard'>Dashboard</Nav.Link>
                                 </div>
                             }
                             

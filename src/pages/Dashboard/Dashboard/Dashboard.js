@@ -4,6 +4,7 @@ import DashHeader from '../DashHeader/DashHeader';
 import Pay from '../DashPages/Users/Pay/Pay';
 import MyOrders from '../DashPages/Users/MyOrders/MyOrders/MyOrders';
 import MyReviews from '../DashPages/Users/MyReview/MyReview';
+import DashHome from '../DashPages/DashHome/DashHome';
 
 const Dashboard = () => {
     const { path, url } = useRouteMatch();
@@ -11,10 +12,11 @@ const Dashboard = () => {
     return (
         <>
           <DashHeader url={url} />
-
-          <Redirect to={{pathname: '/dashboard/orders'}} />
           
           <Switch>
+              <Route exact path={`${path}`}>
+                <DashHome />
+              </Route>
               <Route path={`${path}/orders`}>
                   <MyOrders />
               </Route>
