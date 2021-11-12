@@ -26,7 +26,7 @@ const Register = () => {
         accessWithGoogle(history, redirected_uri);
     }
     return (
-        <div style={{marginTop: '76.7px'}}>
+        <div>
             <div>
                 <Container>
                     <div style={{width: '100%'}} className="mb-4">

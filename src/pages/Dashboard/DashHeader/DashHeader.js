@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const DashHeader = ({ url }) => {
     return (
-        <div style={{marginTop: '76.7px'}}>
+        <div>
             <h2 style={{borderBottom: '1px solid rgba(255, 255, 255, 0.2)'}} className="text-center pt-3 pb-3 my-0 bg-dark text-light">Dashboard</h2>
             <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                 <Container>
