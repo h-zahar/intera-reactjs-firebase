@@ -49,7 +49,7 @@ const Header = () => {
                             {
                                 (!isLoading && user?.email) &&
                                 <div>
-                                    <p className="my-2 mx-md-2 mx-0 text-danger">Hello <span className="text-success">{user?.displayName.split(' ')[0]}!</span></p>
+                                    <p className="my-2 mx-md-2 mx-0 text-danger">Hello <span className="text-success">{user?.displayName?.split(' ')[0]}!</span></p>
                                 </div>
                             }
 
