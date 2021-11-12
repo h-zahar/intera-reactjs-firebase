@@ -3,33 +3,33 @@ import { Carousel, Container, Row, Col } from 'react-bootstrap';
 
 const Banner = () => {
     return (
-        <div>
-            <Carousel style={{width: '100%'}} controls={false}>
-                <Carousel.Item interval={8000} style={{transition: 'all 2.5s ease-in-out', minHeight: '501px', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/3.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
-                    <Container>
-                        <Row>
-                            <Col>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id perspiciatis repudiandae cumque asperiores aliquid fuga, hic veritatis praesentium nobis labore odit deleniti? Adipisci praesentium tempore unde libero ex similique fuga provident? Nobis sed iusto eligendi officiis facere veritatis ipsam quibusdam?
-                            </Col>
-                        </Row>
+        <div style={{background: 'rgba(0, 0, 0, 0.75)'}}>
+            <Carousel style={{width: '100%', opacity: '1'}} fade controls={false}>
+                <Carousel.Item interval={8000} style={{transition: 'all 2s ease-in-out', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/3.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
+                    <Container style={{minHeight: '501px'}} className="text-light d-flex justify-content-center align-items-center">
+                        <div className="text-center">
+                            <p>Terracotta Lovers are awesome, you know!</p>
+                            <h1>Welcome in your Intera</h1>
+                            <p>Your Empire of Terracotta</p>
+                        </div>
                     </Container>
                 </Carousel.Item>
-                <Carousel.Item interval={8000} style={{transition: 'all 2.5s ease-in-out', minHeight: '501px', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/2.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
-                    <Container>
-                        <Row>
-                            <Col>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id perspiciatis repudiandae cumque asperiores aliquid fuga, hic veritatis praesentium nobis labore odit deleniti? Adipisci praesentium tempore unde libero ex similique fuga provident? Nobis sed iusto eligendi officiis facere veritatis ipsam quibusdam?
-                            </Col>
-                        </Row>
+                <Carousel.Item interval={8000} style={{transition: 'all 2s ease-in-out', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/2.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
+                    <Container style={{minHeight: '501px'}} className="text-light d-flex justify-content-center align-items-center">
+                        <div className="text-center">
+                            <p>Terracotta Lovers are awesome, you know!</p>
+                            <h1>Welcome in your Intera</h1>
+                            <p>Your Empire of Terracotta</p>
+                        </div>
                     </Container>
                 </Carousel.Item>
-                <Carousel.Item interval={8000} style={{transition: 'all 2.5s ease-in-out', minHeight: '501px', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/1.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
-                    <Container>
-                        <Row>
-                            <Col>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id perspiciatis repudiandae cumque asperiores aliquid fuga, hic veritatis praesentium nobis labore odit deleniti? Adipisci praesentium tempore unde libero ex similique fuga provident? Nobis sed iusto eligendi officiis facere veritatis ipsam quibusdam?
-                            </Col>
-                        </Row>
+                <Carousel.Item interval={8000} style={{transition: 'all 2s ease-in-out', background: `rgba(0, 0, 0, 0.75) url('./images/ban-bg/1.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
+                    <Container style={{minHeight: '501px'}} className="text-light d-flex justify-content-center align-items-center">
+                        <div className="text-center">
+                            <p>Terracotta Lovers are awesome, you know!</p>
+                            <h1>Welcome in your Intera</h1>
+                            <p>Your Empire of Terracotta</p>
+                        </div>
                     </Container>
                 </Carousel.Item>
             </Carousel>
