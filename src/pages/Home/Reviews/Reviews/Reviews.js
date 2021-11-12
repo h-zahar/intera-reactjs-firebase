@@ -11,8 +11,8 @@ const Reviews = () => {
     }, []);
     return (
         <div>
-            <Container className="my-5">
-                <h2 className="mb-4 text-center">Reviews</h2>
+            <Container className="my-5 pt-4">
+                <h2 className="mb-5 text-center">Reviews</h2>
                 <Row className="d-flex justify-content-center">
                     {
                         reviews.map(review => {

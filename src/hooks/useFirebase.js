@@ -26,7 +26,7 @@ const useFirebase = () => {
         signInWithPopup(auth, provider)
         .then(result => {
             setUser(result.user);
-            const putData = {fullName: result.user.displayName, email: result.user.email, isAdmin: false};
+            const putData = {fullName: result.user.displayName, email: result.user.email, userImg: result.user.photoURL, isAdmin: false};
             sendUserToDatabase(putData);
             history.push(redirected_uri);
         })

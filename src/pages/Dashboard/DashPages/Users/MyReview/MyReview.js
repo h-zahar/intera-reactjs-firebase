@@ -8,7 +8,7 @@ const MyReview = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        const postData = {email: user?.email, fullName: user?.displayName, ...data};
+        const postData = {email: user?.email, fullName: user?.displayName, userImg: user?.photoURL, ...data};
         console.log(postData);
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
