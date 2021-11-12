@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouteMatch, Switch, Route, Redirect } from 'react-router-dom';
 import DashHeader from '../DashHeader/DashHeader';
 import Pay from '../DashPages/Users/Pay/Pay';
@@ -7,12 +7,13 @@ import MyReviews from '../DashPages/Users/MyReview/MyReview';
 
 const Dashboard = () => {
     const { path, url } = useRouteMatch();
+
     return (
         <>
           <DashHeader url={url} />
-          {
-            url && <Redirect to={{pathname: `${url}/orders`}} />
-          }
+
+          <Redirect to={{pathname: '/dashboard/orders'}} />
+          
           <Switch>
               <Route path={`${path}/orders`}>
                   <MyOrders />

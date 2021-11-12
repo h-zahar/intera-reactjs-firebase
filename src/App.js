@@ -10,15 +10,18 @@ import Explore from './pages/Explore/Explore';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard/DashRoutes';
 import NotFound from './pages/NotFound/NotFound';
+import { useState } from 'react';
 
 initializeAuth();
 
 function App() {
+  const [dashState, setDashState] = useState(0);
+
   return (
     <>
       <AuthProvider>
         <Router>
-          <Header />
+          <Header dashState={dashState} />
           <Switch>
 
             <Route exact path="/">
@@ -38,7 +41,7 @@ function App() {
             </Route>
 
             <Route path="/dashboard">
-              <Dashboard />
+              <Dashboard setDashState={setDashState} />
             </Route>
 
             <Route path="*">

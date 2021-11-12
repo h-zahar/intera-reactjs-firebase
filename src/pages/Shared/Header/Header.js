@@ -53,9 +53,11 @@ const Header = () => {
                                 </div>
                             }
 
+                            {
                                 <div className="d-flex">
-                                    <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
+                                    <Nav.Link as={NavLink} to='/dashboard/orders'>Dashboard</Nav.Link>
                                 </div>
+                            }
                             
                             {
                                 (!isLoading && user?.email) &&
