@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { user, accessWithGoogle, registerWithMail } = useAuth();
+    const { accessWithGoogle, registerWithMail } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const redirected_uri = location.state?.from || '/';
+    const redirected_uri = location.state?.from || '/dashboard';
 
     const { register, handleSubmit } = useForm();
 

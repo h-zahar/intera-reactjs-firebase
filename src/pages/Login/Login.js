@@ -9,7 +9,7 @@ const Login = () => {
     const { accessWithGoogle, loginWithMail } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const redirected_uri = location.state?.from || '/';
+    const redirected_uri = location.state?.from || '/dashboard';
 
     const { register, handleSubmit } = useForm();
 
