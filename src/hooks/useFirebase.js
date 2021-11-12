@@ -7,9 +7,9 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const sendToDatabase = (fetchMethod, fetchData) => {
+    const sendUserToDatabase = (fetchData) => {
         fetch('http://localhost:5000/users', {
-            method: fetchMethod,
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -27,7 +27,7 @@ const useFirebase = () => {
         .then(result => {
             setUser(result.user);
             const putData = {fullName: result.user.displayName, email: result.user.email, isAdmin: false};
-            sendToDatabase('POST', putData);
+            sendUserToDatabase(putData);
             history.push(redirected_uri);
         })
         .catch(() => { })
@@ -50,8 +50,8 @@ const useFirebase = () => {
             newUser.displayName = fullName;
             setUser(newUser);
             updateDetailsOnForm(fullName);
-            const postData = {fullName: fullName, email: email, isAdmin: false};
-            sendToDatabase('POST', postData);
+            const putData = {fullName: fullName, email: email, isAdmin: false};
+            sendUserToDatabase(putData);
             history.push(redirected_uri);
         })
         .catch(() => {  })
