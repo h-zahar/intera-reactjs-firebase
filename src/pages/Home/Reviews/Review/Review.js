@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import Rating from 'react-rating';
 
 const Review = (props) => {
     const { _id, fullName, userImg, feedback, rating } = props.review;
@@ -19,7 +20,16 @@ const Review = (props) => {
                     }
                 </div>
                 <p className="mt-3"><strong>{fullName}</strong></p>
-                <p>Rating: {rating}</p>
+                    <p>
+                        <Rating
+                        initialRating={rating}
+                        readonly
+                        emptySymbol="fa-regular fa-star"
+                        fullSymbol="fa-solid fa-star"
+                        fractions={4}
+                        /><br />
+                        <span className="mx-2">({rating})</span>
+                    </p>
                 <p>{feedback}</p>
             </div>
         </Col>
