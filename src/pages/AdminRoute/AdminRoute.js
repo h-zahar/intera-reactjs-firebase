@@ -4,8 +4,8 @@ import { Redirect, Route } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const AdminRoute = ({ children, ...rest }) => {
-    const { user, isLoading, isAdmin } = useAuth();
-    if (isLoading)
+    const { user, isLoading, isAdminLoading, isAdmin } = useAuth();
+    if (isLoading || isAdminLoading)
     {
         return <div className="d-flex justify-content-center mt-4"><Spinner animation="grow" variant="dark" /></div>
     }
