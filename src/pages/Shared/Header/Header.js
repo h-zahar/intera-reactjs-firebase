@@ -8,7 +8,7 @@ import './Header.css';
 const Header = () => {
     const { user, isLoading, logOut } = useAuth();
     return (
-        <div style={{position: 'sticky', top: '0', zIndex: '2'}}>
+        <div style={{position: 'sticky', top: '0', zIndex: '3'}}>
             <Navbar className="bg-header" collapseOnSelect expand="md">
                 <Container>
                     <Navbar.Brand as={NavLink} exact to="/">
