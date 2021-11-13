@@ -10,7 +10,7 @@ const Explore = () => {
         .then(data => setItems(data));
     }, []);
     return (
-        <div>
+        <div style={{minHeight: '80vh'}}>
             <Container className="mb-5">
                 <h2 className="mt-5 pt-2 mb-5 text-center">Explore Items</h2>
                 <Row className="d-flex justify-content-center">

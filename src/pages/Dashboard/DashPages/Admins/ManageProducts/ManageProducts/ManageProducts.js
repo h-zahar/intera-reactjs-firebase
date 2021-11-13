@@ -10,7 +10,7 @@ const ManageProducts = () => {
         .then(data => setAllProducts(data));
     }, []);
     return (
-        <Container className="mb-5">
+        <Container style={{minHeight: '40vh'}} className="mb-5">
             <h4 className="text-center mt-3 mb-4">Products</h4><hr />
             <div className="d-flex flex-wrap justify-content-center">
                 {

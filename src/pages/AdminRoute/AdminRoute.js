@@ -7,7 +7,7 @@ const AdminRoute = ({ children, ...rest }) => {
     const { user, isLoading, isAdminLoading, isAdmin } = useAuth();
     if (isLoading || isAdminLoading)
     {
-        return <div className="d-flex justify-content-center mt-4"><Spinner animation="grow" variant="dark" /></div>
+        return <div style={{minHeight: '80vh'}} className="d-flex justify-content-center mt-4"><Spinner animation="grow" variant="dark" /></div>
     }
     return (
         <Route

@@ -16,7 +16,7 @@ const Dashboard = () => {
     const { path, url } = useRouteMatch();
 
     return (
-        <>
+        <div style={{minHeight: '50vh'}}>
           <DashHeader url={url} />
           
           <Switch>
@@ -58,7 +58,7 @@ const Dashboard = () => {
               </Route>
 
           </Switch>
-        </>
+        </div>
     )
 }
 

@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { accessWithGoogle, loginWithMail } = useAuth();
+    const { accessWithGoogle, loginWithMail, isAdmin } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const redirected_uri = location.state?.from || '/dashboard';
+    let redirected_uri = location.state?.from || '/dashboard';
+    
+    if (isAdmin) {
+        redirected_uri = '/dashboard/admin/all-orders';
+    }
 
     const { register, handleSubmit } = useForm();
 
