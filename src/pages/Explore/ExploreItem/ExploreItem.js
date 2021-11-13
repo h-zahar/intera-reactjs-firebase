@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ExploreItem = (props) => {
-    const { img_i, title, short_description } = props.item;
+    const { _id, img_i, title, short_description } = props.item;
 
     const handlePurchase = () => {
 
@@ -18,7 +19,7 @@ const ExploreItem = (props) => {
                     <p>{short_description}</p>
                 </div>
                 <div className="text-center">
-                    <button className="mt-3 mb-5" onClick={handlePurchase}>Puchase</button>
+                    <Link style={{color: 'unset', textDecoration: 'unset'}} to={`/purchase/${_id}`}><button className="mt-3 mb-4 btn-purchase">Purchase</button></Link>
                 </div>
             </div>
         </Col>

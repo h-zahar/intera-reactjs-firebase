@@ -19,7 +19,7 @@ const Product = (props) => {
                 </div>
 
                 <div className="text-center">
-                    <Link style={{color: 'unset', textDecoration: 'unset'}} to={`/purchase/${_id}`}><button className="mt-3 mb-4">Purchase</button></Link>
+                    <Link style={{color: 'unset', textDecoration: 'unset'}} to={`/purchase/${_id}`}><button className="mt-3 mb-4 btn-purchase">Purchase</button></Link>
                 </div>
             </div>
         </Col>

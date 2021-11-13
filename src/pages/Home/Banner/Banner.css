@@ -1,3 +1,15 @@
 .brand {
     color: rgb(53, 151, 155);
 }
+.btn-explore {
+    padding: 8px 15px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-explore:hover {
+    color: white;
+    background: transparent;
+    border: 1px solid black;
+    transition: all 0.5s;
+}

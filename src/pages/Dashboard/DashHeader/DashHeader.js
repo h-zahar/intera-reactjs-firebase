@@ -76,7 +76,7 @@ const DashHeader = ({ url }) => {
                             {
                                 !isAdminLoading &&
                                 <div>
-                                <button className="my-md-0 my-2 py-md-1 ms-md-2 ms-0" onClick={logOut}>Logout</button>
+                                <button className="my-md-0 my-2 py-md-1 ms-md-2 ms-0 btn-logout-dash rounded" onClick={logOut}>Logout</button>
                                 </div>
                             }
 

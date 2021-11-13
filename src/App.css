@@ -1,3 +1,41 @@
 .brand-ground {
     background: rgba(250, 235, 215, 0.747);
 }
+
+.btn-logout {
+    background: white;
+    border: none;
+    color: black;
+}
+
+.btn-logout:hover {
+    background: black;
+    color: white;
+    transition: all 0.5s;
+}
+
+.btn-logout-dash {
+    background: white;
+    border: 2px solid black;
+    color: black;
+}
+
+.btn-logout-dash:hover {
+    background: transparent;
+    color: white;
+    transition: all 0.5s;
+}
+
+.btn-purchase {
+    padding: 7px 12px;
+    border-radius: 4px;
+    background: black;
+    color: white;
+    border: 1px solid black;
+}
+
+.btn-purchase:hover {
+    background: white;
+    color: black;
+    transition: all 0.5s;
+}
