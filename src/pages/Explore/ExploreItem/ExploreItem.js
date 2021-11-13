@@ -8,7 +8,7 @@ const ExploreItem = (props) => {
 
     };
     return (
-        <Col sm={6} md={4} className="gy-5 gx-0">
+        <Col xm={12} md={6} lg={4} className="gy-5 gx-0">
             <div className="mx-2 shadow-lg rounded">
                 <div>
                     <img style={{width: '100%', minHeight: '250px'}} src={img_i} alt="" />
