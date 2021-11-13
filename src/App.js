@@ -11,6 +11,7 @@ import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import NotFound from './pages/NotFound/NotFound';
+import Purchase from './pages/Purchase/Purchase';
 
 initializeAuth();
 
@@ -37,6 +38,10 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
+
+            <PrivateRoute path="/purchase/:id">
+              <Purchase />
+            </PrivateRoute>
 
             <PrivateRoute path="/dashboard">
               <Dashboard />
