@@ -11,7 +11,7 @@ const Products = () => {
     }, []);
     return (
         <div>
-            <Container className="my-5">
+            <Container className="my-5 pb-5">
                 <h2 className="mb-4 text-center pt-5 pb-4">Our Products</h2>
                 <Row className="d-flex justify-content-center">
                     {

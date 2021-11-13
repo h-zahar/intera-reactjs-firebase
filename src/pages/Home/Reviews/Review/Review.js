@@ -5,7 +5,7 @@ import Rating from 'react-rating';
 const Review = (props) => {
     const { _id, fullName, userImg, feedback, rating } = props.review;
     return (
-        <Col xs={12} sm={6} md={4} lg={3}>
+        <Col xs={12} sm={6} md={4} lg={3} className="gy-4">
             <div style={{background: 'white', overflowX: 'hidden'}} className="text-center py-5 px-2 rounded shadow-lg">
                 <div className="d-flex justify-content-center">
                     {
