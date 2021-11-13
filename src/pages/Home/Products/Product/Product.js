@@ -15,7 +15,7 @@ const Product = (props) => {
                     <img style={{minHeight: '175px', maxWidth: '100%'}} src={img_i} alt="" />
                 </div>
 
-                <h3 className="mt-3 mb-4">{title}</h3>
+                <h4 className="mt-3 mb-4 text-center">{title}</h4>
 
                 <div>
                     <p>{short_description}</p>
