@@ -54,6 +54,7 @@ const Header = () => {
                             }
 
                             {
+                                (!isLoading && user?.email) &&
                                 <div className="d-flex">
                                     <Nav.Link as={NavLink} to='/dashboard'>Dashboard</Nav.Link>
                                 </div>

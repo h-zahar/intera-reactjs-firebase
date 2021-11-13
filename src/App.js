@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Explore from './pages/Explore/Explore';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import NotFound from './pages/NotFound/NotFound';
 
 initializeAuth();
@@ -37,9 +38,9 @@ function App() {
               <Register />
             </Route>
 
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard />
-            </Route>
+            </PrivateRoute>
 
             <Route path="*">
               <NotFound />

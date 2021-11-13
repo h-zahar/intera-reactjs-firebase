@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [isAdmin, setIsAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
@@ -16,7 +17,8 @@ const useFirebase = () => {
             body: JSON.stringify(fetchData)
         })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .catch(() => {  });
     }
 
     const accessWithGoogle = (history, redirected_uri) => {
@@ -82,6 +84,12 @@ const useFirebase = () => {
         return () => unsubscribed;
     }, [auth]);
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+        .then(res => res.json())
+        .then(data => setIsAdmin(data?.isAdmin))
+    }, [user?.email]);
+
     const logOut = () => {
         setIsLoading(true);
         
@@ -92,6 +100,7 @@ const useFirebase = () => {
 
     return {
         user,
+        isAdmin,
         isLoading,
         setUser,
         setIsLoading,
