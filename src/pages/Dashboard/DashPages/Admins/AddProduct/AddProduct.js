@@ -5,7 +5,7 @@ const AddProduct = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/products', {
+        fetch('https://stark-sierra-52397.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

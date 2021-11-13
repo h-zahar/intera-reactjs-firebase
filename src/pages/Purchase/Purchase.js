@@ -22,7 +22,7 @@ const Purchase = () => {
     const onSubmit = data => {
         data.isShipped = false;
         
-        fetch('http://localhost:5000/orders', {
+        fetch('https://stark-sierra-52397.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const Purchase = () => {
 
     useEffect(() => {
         console.log(id);
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://stark-sierra-52397.herokuapp.com/products/${id}`)
         .then(res => res.json())
         .then(data => setProductDetails(data));
     }, []);

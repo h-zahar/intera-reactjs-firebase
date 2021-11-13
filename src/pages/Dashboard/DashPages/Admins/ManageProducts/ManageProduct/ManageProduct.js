@@ -9,7 +9,7 @@ const ManageProduct = (props) => {
             return;
         }
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://stark-sierra-52397.herokuapp.com/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'Application/json'

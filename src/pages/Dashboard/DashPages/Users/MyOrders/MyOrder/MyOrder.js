@@ -9,7 +9,7 @@ const MyOrder = (props) => {
         if(!window.confirm('Are you sure to cancel?')) {
             return;
         }
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://stark-sierra-52397.herokuapp.com/orders/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'aplplication/json'

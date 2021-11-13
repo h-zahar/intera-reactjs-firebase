@@ -12,7 +12,7 @@ const MyReview = () => {
     const onSubmit = data => {
         const postData = {email: user?.email, fullName: user?.displayName, userImg: user?.photoURL, rating, ...data};
         console.log(postData);
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://stark-sierra-52397.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

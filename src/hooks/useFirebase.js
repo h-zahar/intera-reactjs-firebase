@@ -10,7 +10,7 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const sendUserToDatabase = (fetchData) => {
-        fetch('http://localhost:5000/users', {
+        fetch('https://stark-sierra-52397.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const useFirebase = () => {
 
     useEffect(() => {
         setIsAdminLoading(true);
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://stark-sierra-52397.herokuapp.com/users/${user?.email}`)
         .then(res => res.json())
         .then(data => setIsAdmin(data?.isAdmin))
         .finally(() => setIsAdminLoading(false));
