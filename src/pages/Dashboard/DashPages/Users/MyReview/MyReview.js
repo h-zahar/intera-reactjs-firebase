@@ -30,9 +30,9 @@ const MyReview = () => {
                 <form style={{maxWidth: '400px', minWidth: '250px'}} className="form-sizing d-flex flex-column py-4 px-5 mx-auto shadow-lg rounded" onSubmit={handleSubmit(onSubmit)}>
                     <h3 className="text-center">Review</h3>
                     <div className="fs-3 text-center mt-3 mb-4">
-                        <small className="fs-6">Double Tap on Your Rating!</small>
+                        <small className="fs-6">Tap on Your Rating!</small><br />
                         <Rating
-                            initialRating='0'
+                            initialRating={rating}
                             emptySymbol="fa-regular fa-star"
                             fullSymbol="fa-solid fa-star"
                             fractions={4}
