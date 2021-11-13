@@ -6,7 +6,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import AuthProvider from './contexts/AuthProvider';
 import initializeAuth from './firebase/firebase.init';
 import Login from './pages/Login/Login';
-import Explore from './pages/Explore/Explore';
+import Explore from './pages/Explore/Explore/Explore';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
