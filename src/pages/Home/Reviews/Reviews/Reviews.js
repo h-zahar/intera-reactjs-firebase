@@ -11,7 +11,7 @@ const Reviews = () => {
     }, []);
     return (
         <div>
-            <Container className="my-5 pt-4">
+            <Container className="mt-5 py-5">
                 <h2 className="mb-5 text-center">Reviews</h2>
                 <Row className="d-flex justify-content-center">
                     {
