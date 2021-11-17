@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 const AddProduct = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data);
         fetch('https://stark-sierra-52397.herokuapp.com/products', {
             method: 'POST',
             headers: {
@@ -17,7 +16,12 @@ const AddProduct = () => {
             if(data?.acknowledged) {
                 reset();
             }
-        });
+        })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     };
     return (
         <div>

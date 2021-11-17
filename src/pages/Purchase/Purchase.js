@@ -31,15 +31,24 @@ const Purchase = () => {
         })
         .then(res => res.json())
         .then(data => { })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         })
         .finally(() => { history.push(redirected_uri) });
 
     }
 
     useEffect(() => {
-        console.log(id);
         fetch(`https://stark-sierra-52397.herokuapp.com/products/${id}`)
         .then(res => res.json())
-        .then(data => setProductDetails(data));
+        .then(data => setProductDetails(data))
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     }, []);
     
     return (

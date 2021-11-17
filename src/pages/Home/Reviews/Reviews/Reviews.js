@@ -7,7 +7,12 @@ const Reviews = () => {
     useEffect(() => {
         fetch('https://stark-sierra-52397.herokuapp.com/reviews')
         .then(res => res.json())
-        .then(data => setReviews(data));
+        .then(data => setReviews(data))
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     }, []);
     return (
         <div>

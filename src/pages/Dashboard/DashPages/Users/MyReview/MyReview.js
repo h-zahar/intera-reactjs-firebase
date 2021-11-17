@@ -11,7 +11,7 @@ const MyReview = () => {
 
     const onSubmit = data => {
         const postData = {email: user?.email, fullName: user?.displayName, userImg: user?.photoURL, rating, ...data};
-        console.log(postData);
+
         fetch('https://stark-sierra-52397.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
@@ -20,7 +20,12 @@ const MyReview = () => {
             body: JSON.stringify(postData)
         })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {  })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     };
 
     return (

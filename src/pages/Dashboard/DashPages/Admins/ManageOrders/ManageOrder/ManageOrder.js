@@ -24,7 +24,12 @@ const ManageOrder = (props) => {
                 else {
                     return single;
                 }
-            });
+            })
+            .catch((error) => { 
+                if(error) {
+                    window.location.reload();
+                }
+             });
             setAllOrders(updated);
         })
     };
@@ -45,7 +50,12 @@ const ManageOrder = (props) => {
                 const remaining = allOrders.filter(single => single._id !== id);
                 setAllOrders(remaining);
             }
-        });
+        })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     }
 
     return (

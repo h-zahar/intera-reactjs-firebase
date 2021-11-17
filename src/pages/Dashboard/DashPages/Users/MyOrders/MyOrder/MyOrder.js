@@ -21,7 +21,12 @@ const MyOrder = (props) => {
                 const remaining = myOrders.filter(single => single._id !== id);
                 setMyOrders(remaining);
             }
-        });
+        })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     }
 
     return (

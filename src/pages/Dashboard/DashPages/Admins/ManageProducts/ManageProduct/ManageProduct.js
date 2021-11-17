@@ -21,7 +21,12 @@ const ManageProduct = (props) => {
                 const remaining = allProducts.filter(single => single._id !== id);
                 setAllProducts(remaining);
             }
-        });
+        })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     };
 
     return (

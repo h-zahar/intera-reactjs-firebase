@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 const MakeAdmin = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data);
         fetch(`https://stark-sierra-52397.herokuapp.com/users/${data.email}`, {
             method: 'PUT',
             headers: {
@@ -12,7 +11,12 @@ const MakeAdmin = () => {
             }
         })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {  })
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     };
     return (
         <div>

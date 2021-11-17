@@ -7,7 +7,12 @@ const ManageProducts = () => {
     useEffect(() => {
         fetch('https://stark-sierra-52397.herokuapp.com/products')
         .then(res => res.json())
-        .then(data => setAllProducts(data));
+        .then(data => setAllProducts(data))
+        .catch((error) => { 
+            if(error) {
+                window.location.reload();
+            }
+         });
     }, []);
     return (
         <Container style={{minHeight: '40vh'}} className="mb-5">
