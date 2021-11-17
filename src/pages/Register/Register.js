@@ -9,7 +9,7 @@ const Register = () => {
     const { accessWithGoogle, registerWithMail, isAdmin } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const redirected_uri = location.state?.from || '/dashboard';
+    let redirected_uri = location.state?.from || '/dashboard';
 
     if (isAdmin) {
         redirected_uri = '/dashboard/admin/all-orders';
