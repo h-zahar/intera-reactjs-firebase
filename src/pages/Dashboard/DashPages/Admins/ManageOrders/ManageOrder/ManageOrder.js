@@ -25,7 +25,7 @@ const ManageOrder = (props) => {
                     return single;
                 }
             })
-            .catch((error) => { 
+            .catch(error => { 
                 if(error) {
                     window.location.reload();
                 }
@@ -51,11 +51,11 @@ const ManageOrder = (props) => {
                 setAllOrders(remaining);
             }
         })
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }
 
     return (

@@ -17,11 +17,11 @@ const AddProduct = () => {
                 reset();
             }
         })
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     };
     return (
         <div>

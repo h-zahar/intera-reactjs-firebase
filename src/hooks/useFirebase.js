@@ -19,11 +19,12 @@ const useFirebase = () => {
         })
         .then(res => res.json())
         .then(data => {  })
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
+
     }
 
     const accessWithGoogle = (history, redirected_uri) => {
@@ -94,11 +95,11 @@ const useFirebase = () => {
         fetch(`https://stark-sierra-52397.herokuapp.com/users/${user?.email}`)
         .then(res => res.json())
         .then(data => setIsAdmin(data?.isAdmin))
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         })
+        })
         .finally(() => setIsAdminLoading(false));
     }, [user?.email]);
 
@@ -106,6 +107,11 @@ const useFirebase = () => {
         setIsLoading(true);
         signOut(auth)
         .then(() => {  })
+        .catch(error => {
+            if (error) {
+                window.location.reload();
+            }
+        })
         .finally(() => setIsLoading(false));
     }
 

@@ -8,11 +8,11 @@ const Products = () => {
         fetch('https://stark-sierra-52397.herokuapp.com/products/featured')
         .then(res => res.json())
         .then(data => setProducts(data))
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }, []);
     return (
         <div>

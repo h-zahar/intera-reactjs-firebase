@@ -12,11 +12,11 @@ const MakeAdmin = () => {
         })
         .then(res => res.json())
         .then(data => {  })
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     };
     return (
         <div>

@@ -8,11 +8,11 @@ const ManageOrders = () => {
         fetch('https://stark-sierra-52397.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setAllOrders(data))
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }, []);
     return (
         <div style={{minHeight: '50vh'}} className="mt-3 mb-5">

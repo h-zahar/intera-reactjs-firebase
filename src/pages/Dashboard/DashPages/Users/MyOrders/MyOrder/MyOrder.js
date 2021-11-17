@@ -22,11 +22,11 @@ const MyOrder = (props) => {
                 setMyOrders(remaining);
             }
         })
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }
 
     return (

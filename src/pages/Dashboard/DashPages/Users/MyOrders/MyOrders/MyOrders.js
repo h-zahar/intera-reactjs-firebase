@@ -10,11 +10,11 @@ const MyOrders = () => {
         fetch(`https://stark-sierra-52397.herokuapp.com/orders/${user?.email}`)
         .then(res => res.json())
         .then(data => setMyOrders(data))
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }, []);
     return (
         <div style={{minHeight: '60vh'}}>

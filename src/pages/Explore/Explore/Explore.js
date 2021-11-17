@@ -8,11 +8,11 @@ const Explore = () => {
         fetch('https://stark-sierra-52397.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setItems(data))
-        .catch((error) => { 
-            if(error) {
+        .catch(error => {
+            if (error) {
                 window.location.reload();
             }
-         });
+        });
     }, []);
     return (
         <div style={{minHeight: '80vh'}}>
