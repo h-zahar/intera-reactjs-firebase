@@ -6,7 +6,7 @@ import Rating from 'react-rating';
 
 const MyReview = () => {
     const { user } = useAuth();
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const [rating, setRating] = useState(0);
 
     const onSubmit = data => {
@@ -20,7 +20,11 @@ const MyReview = () => {
             body: JSON.stringify(postData)
         })
         .then(res => res.json())
-        .then(data => {  })
+        .then(data => { 
+            if (data) {
+                reset();
+            }
+         })
         .catch(error => {
             if (error) {
                 window.location.reload();
@@ -45,6 +49,7 @@ const MyReview = () => {
                         />
                     </div>
                     <textarea className="px-2" style={{resize: 'none'}} placeholder="Write Feedback (Max 100 Characters)" {...register("feedback", { maxLength: 100})}/>
+                    {errors.feedback && <span className="mb-2 text-danger">Something's not correct</span>}
                     <input type="submit" />
                 </form>
             </div>
