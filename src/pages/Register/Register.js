@@ -34,34 +34,37 @@ const Register = () => {
             <div>
                 <Container>
                     <div style={{width: '100%'}} className="mb-4">
-                        <form style={{maxWidth: '400px', minWidth: '250px'}} className="form-sizing d-flex flex-column py-4 px-5 mx-auto shadow-lg rounded" onSubmit={handleSubmit(onSubmit)}>
-                            <h3 className="text-center mb-5 mt-4">Register</h3>
+                        <div style={{maxWidth: '400px', minWidth: '250px'}} className="py-4 px-5 mx-auto shadow-lg rounded" >
+                            <form className="form-sizing d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
+                                <h3 className="text-center mb-5 mt-4">Register</h3>
 
-                            <label><strong>Enter Name</strong></label>
-                            <input className="px-2 mt-2 mb-3" placeholder="John Son" {...register("fullName", { required: true })} />
-                            {errors.fullName && <span className="mb-2 text-danger">Something's not correct</span>}
+                                <label><strong>Enter Name</strong></label>
+                                <input className="px-2 mt-2 mb-3" placeholder="John Son" {...register("fullName", { required: true })} />
+                                {errors.fullName && <span className="mb-2 text-danger">Something's not correct</span>}
 
-                            <label><strong>Enter Email</strong></label>
-                            <input className="px-2 mt-2 mb-3" placeholder="johnson24@gmail.com" type="email" {...register("email", { required: true })} />
-                            {errors.email && <span className="mb-2 text-danger">Something's not correct</span>}
+                                <label><strong>Enter Email</strong></label>
+                                <input className="px-2 mt-2 mb-3" placeholder="johnson24@gmail.com" type="email" {...register("email", { required: true })} />
+                                {errors.email && <span className="mb-2 text-danger">Something's not correct</span>}
 
-                            <label><strong>Set Passsword</strong></label>
-                            <input className="px-2 mt-2 mb-3" placeholder="Set a strong one!" type="password" {...register("password", { required: true })} />
-                            {errors.password && <span className="mb-2 text-danger">Something's not correct</span>}
+                                <label><strong>Set Passsword</strong></label>
+                                <input className="px-2 mt-2 mb-3" placeholder="Set a strong one!" type="password" {...register("password", { required: true })} />
+                                {errors.password && <span className="mb-2 text-danger">Something's not correct</span>}
 
-                            <label><strong>Re-Enter Passsword</strong></label>
-                            <input className="px-2 mt-2 mb-3" placeholder="Type your original again!" type="password" {...register("checkPassword", { required: true })} />
-                            {errors.checkPassword && <span className="mb-2 text-danger">Something's not correct</span>}
+                                <label><strong>Re-Enter Passsword</strong></label>
+                                <input className="px-2 mt-2 mb-3" placeholder="Type your original again!" type="password" {...register("checkPassword", { required: true })} />
+                                {errors.checkPassword && <span className="mb-2 text-danger">Something's not correct</span>}
 
-                            {
-                                firebaseError &&
-                                <p className="text-danger text-center">[ {firebaseError.split('/')[1].split('-').join(' ')[0].toUpperCase()+firebaseError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
-                            }
+                                {
+                                    firebaseError &&
+                                    <p className="text-danger text-center">[ {firebaseError.split('/')[1].split('-').join(' ')[0].toUpperCase()+firebaseError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
+                                }
 
 
-                            <div className="mx-auto"><input className="my-3" type="submit" value="Register" /></div>
+                                <div className="mx-auto"><input className="my-3" type="submit" value="Register" /></div>
+                            </form>
+
                             <div>
-                                
+                                    
                                 <p className="border-top pt-2 mt-3 mb-0 text-center">Or, Sign Up With Google</p>
                                 <div className="d-flex justify-content-center">
                                     <button onClick={handleAccessWithGoogle} className="mt-3 btn-google"><i className="fa-brands fa-google" /></button>
@@ -70,7 +73,8 @@ const Register = () => {
                                     <p>Already Here? <Link to="/login">Login</Link></p>
                                 </div>
                             </div>
-                        </form>
+
+                        </div>
                     </div>
                 </Container>
             </div>
