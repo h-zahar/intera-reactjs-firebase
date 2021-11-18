@@ -6,6 +6,7 @@ const useFirebase = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isAdminLoading, setIsAdminLoading] = useState(true);
+    const [firebaseError, setFirebaseError] = useState('');
 
     const auth = getAuth();
 
@@ -33,27 +34,39 @@ const useFirebase = () => {
 
         signInWithPopup(auth, provider)
         .then(result => {
+            setFirebaseError('');
             setUser(result.user);
             const putData = {fullName: result.user.displayName, email: result.user.email, userImg: result.user.photoURL, isAdmin: false};
             sendUserToDatabase(putData);
             history.push(redirected_uri);
         })
-        .catch(() => { })
-        .finally(() => setIsLoading(false));
+        .catch((error) => {
+            if (error) {
+                setFirebaseError(error.code);
+            }
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
     };
 
     const updateDetailsOnForm = (name) => {
         updateProfile(auth.currentUser, {
             displayName: name
           })
-          .then(() => {  })
-          .catch((error) => {  });
+          .then(() => { setFirebaseError(''); })
+          .catch((error) => { 
+              if (error) {
+                setFirebaseError(error.code);
+              }
+           });
     }
 
     const registerWithMail = (fullName, email, password, history, redirected_uri) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
+            setFirebaseError('');
             const newUser = {...result.user};
             newUser.displayName = fullName;
             setUser(newUser);
@@ -62,19 +75,32 @@ const useFirebase = () => {
             sendUserToDatabase(putData);
             history.push(redirected_uri);
         })
-        .catch(() => {  })
-        .finally(() => setIsLoading(false));
+        .catch((error) => { 
+            if (error) {
+                setFirebaseError(error.code);
+            }
+         })
+        .finally(() => {
+            setIsLoading(false);
+        });
     };
 
     const loginWithMail = (email, password, history, redirected_uri) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then(result => {
+            setFirebaseError('');
             setUser(result.user);
             history.push(redirected_uri);
         })
-        .catch(() => {  })
-        .finally(() => setIsLoading(false));
+        .catch((error) => {
+            if (error) {
+                setFirebaseError(error.code);
+            }
+         })
+        .finally(() => {
+            setIsLoading(false);
+        });
     };
 
     useEffect(() => {
@@ -104,15 +130,18 @@ const useFirebase = () => {
     }, [user?.email]);
 
     const logOut = () => {
+        setFirebaseError('');
         setIsLoading(true);
         signOut(auth)
         .then(() => {  })
         .catch(error => {
             if (error) {
-                window.location.reload();
+                setFirebaseError(error.code);
             }
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+            setIsLoading(false);
+        });
     }
 
     return {
@@ -120,6 +149,7 @@ const useFirebase = () => {
         isAdmin,
         isAdminLoading,
         isLoading,
+        firebaseError,
         setUser,
         setIsLoading,
         setIsAdminLoading,

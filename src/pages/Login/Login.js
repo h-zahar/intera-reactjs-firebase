@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { accessWithGoogle, loginWithMail, isAdmin } = useAuth();
+    const { accessWithGoogle, loginWithMail, isAdmin, firebaseError } = useAuth();
     const location = useLocation();
     const history = useHistory();
     let redirected_uri = location.state?.from || '/dashboard';
@@ -41,6 +41,11 @@ const Login = () => {
 
                             <label><strong>Enter Passsword</strong></label>
                             <input className="px-2 mt-2 mb-3" placeholder="Drop your password :D" type="password" {...register("password", { required: true })} />
+
+                            {
+                                firebaseError &&
+                                <p className="text-danger text-center">[ {firebaseError.split('/')[1].split('-').join(' ')[0].toUpperCase()+firebaseError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
+                            }
 
                             <div className="mx-auto"><input className="my-3" type="submit" value="Login" /></div>
                             <div>
