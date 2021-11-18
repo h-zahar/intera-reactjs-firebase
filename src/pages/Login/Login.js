@@ -35,8 +35,7 @@ const Login = () => {
                         <div style={{maxWidth: '400px', minWidth: '250px'}} className="py-4 px-5 mx-auto shadow-lg rounded" >
                             <form className="form-sizing d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
                                 <h3 className="text-center mb-5 mt-4">Login</h3>
-                                {/* <input {...register("fullName", { required: true })} />
-                                <input {...register("lastName", { required: true })} /> */}
+
                                 <label><strong>Enter Email</strong></label>
                                 <input className="px-2 mt-2 mb-3" placeholder="example@provider.com" type="email" {...register("email", { required: true })} />
                                 {errors.email && <span className="mb-2 text-danger">Something's not correct</span>}
