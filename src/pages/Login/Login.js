@@ -15,7 +15,7 @@ const Login = () => {
         redirected_uri = '/dashboard/admin/all-orders';
     }
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         const { email, password } = data;
@@ -38,9 +38,11 @@ const Login = () => {
                             <input {...register("lastName", { required: true })} /> */}
                             <label><strong>Enter Email</strong></label>
                             <input className="px-2 mt-2 mb-3" placeholder="example@provider.com" type="email" {...register("email", { required: true })} />
+                            {errors.email && <span className="mb-2 text-danger">Something's not correct</span>}
 
                             <label><strong>Enter Passsword</strong></label>
                             <input className="px-2 mt-2 mb-3" placeholder="Drop your password :D" type="password" {...register("password", { required: true })} />
+                            {errors.password && <span className="mb-2 text-danger">Something's not correct</span>}
 
                             {
                                 firebaseError &&
