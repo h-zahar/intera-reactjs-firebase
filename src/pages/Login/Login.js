@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { accessWithGoogle, loginWithMail, isAdmin, firebaseError } = useAuth();
+    const { accessWithGoogle, loginWithMail, isAdmin, loginError, googleLoginError } = useAuth();
     const location = useLocation();
     const history = useHistory();
     let redirected_uri = location.state?.from || '/dashboard';
@@ -24,7 +24,7 @@ const Login = () => {
     };
 
     const handleAccessWithGoogle = () => {
-        accessWithGoogle(history, redirected_uri);
+        accessWithGoogle(history, redirected_uri, 'login');
     }
     
     return (
@@ -45,23 +45,30 @@ const Login = () => {
                                 {errors.password && <span className="mb-2 text-danger">Something's not correct</span>}
 
                                 {
-                                    firebaseError &&
-                                    <p className="text-danger text-center">[ {firebaseError.split('/')[1].split('-').join(' ')[0].toUpperCase()+firebaseError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
+                                    loginError &&
+                                    <p className="text-danger text-center">[ {loginError.split('/')[1].split('-').join(' ')[0].toUpperCase()+loginError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
                                 }
+
+                                {
+                                    googleLoginError &&
+                                    <p className="text-danger text-center">[ {googleLoginError.split('/')[1].split('-').join(' ')[0].toUpperCase()+googleLoginError.split('/')[1].split('-').join(' ').substring(1)} ]</p>    
+                                }
+                        
 
                                 <div className="mx-auto"><input className="my-3" type="submit" value="Login" /></div>
 
-                            </form>
-
-                            <div>
+                                <div>
                                 <p className="border-top pt-2 mt-3 mb-0 text-center">Or, Sign In With Google</p>
                                 <div className="d-flex justify-content-center">
-                                    <button onClick={handleAccessWithGoogle} className="mt-3 btn-google"><i className="fa-brands fa-google" /></button>
+                                    <button type="button" onClick={handleAccessWithGoogle} className="mt-3 btn-google"><i className="fa-brands fa-google" /></button>
                                 </div>
                                 <div className="mt-4 mb-2 text-center">
                                     <p>New Here? <Link to="/register">Register</Link></p>
                                 </div>
                             </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </Container>

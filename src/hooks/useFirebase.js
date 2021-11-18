@@ -6,7 +6,10 @@ const useFirebase = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isAdminLoading, setIsAdminLoading] = useState(true);
-    const [firebaseError, setFirebaseError] = useState('');
+    const [loginError, setLoginError] = useState('');
+    const [registerError, setRegisterError] = useState('');
+    const [googleLoginError, setGoogleLoginError] = useState('');
+    const [googleRegisterError, setGoogleRegisterError] = useState('');
 
     const auth = getAuth();
 
@@ -28,13 +31,14 @@ const useFirebase = () => {
 
     }
 
-    const accessWithGoogle = (history, redirected_uri) => {
+    const accessWithGoogle = (history, redirected_uri, method) => {
         setIsLoading(true);
         const provider = new GoogleAuthProvider();
 
         signInWithPopup(auth, provider)
         .then(result => {
-            setFirebaseError('');
+            setGoogleLoginError('');
+            setGoogleRegisterError('');
             setUser(result.user);
             const putData = {fullName: result.user.displayName, email: result.user.email, userImg: result.user.photoURL, isAdmin: false};
             sendUserToDatabase(putData);
@@ -42,7 +46,18 @@ const useFirebase = () => {
         })
         .catch((error) => {
             if (error) {
-                setFirebaseError(error.code);
+                if (method === 'login') {
+                    setGoogleLoginError(error.code);
+                    setGoogleRegisterError('');
+                    setLoginError('');
+                    setRegisterError('');
+                }
+                else if (method === 'register') {
+                    setGoogleRegisterError(error.code);
+                    setGoogleLoginError('');
+                    setLoginError('');
+                    setRegisterError('');
+                }
             }
         })
         .finally(() => {
@@ -54,10 +69,13 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
             displayName: name
           })
-          .then(() => { setFirebaseError(''); })
+          .then(() => { setRegisterError(''); })
           .catch((error) => { 
               if (error) {
-                setFirebaseError(error.code);
+                setRegisterError(error.code);
+                setGoogleLoginError('');
+                setLoginError('');
+                setGoogleRegisterError('');
               }
            });
     }
@@ -66,7 +84,7 @@ const useFirebase = () => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
-            setFirebaseError('');
+            setRegisterError('');
             const newUser = {...result.user};
             newUser.displayName = fullName;
             setUser(newUser);
@@ -77,7 +95,10 @@ const useFirebase = () => {
         })
         .catch((error) => { 
             if (error) {
-                setFirebaseError(error.code);
+                setRegisterError(error.code);
+                setGoogleLoginError('');
+                setLoginError('');
+                setGoogleRegisterError('');
             }
          })
         .finally(() => {
@@ -89,13 +110,16 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then(result => {
-            setFirebaseError('');
+            setLoginError('');
             setUser(result.user);
             history.push(redirected_uri);
         })
         .catch((error) => {
             if (error) {
-                setFirebaseError(error.code);
+                setLoginError(error.code);
+                setGoogleLoginError('');
+                setGoogleRegisterError('');
+                setRegisterError('');
             }
          })
         .finally(() => {
@@ -130,13 +154,19 @@ const useFirebase = () => {
     }, [user?.email]);
 
     const logOut = () => {
-        setFirebaseError('');
+        setLoginError('');
+        setRegisterError('');
+        setGoogleLoginError('');
+        setGoogleRegisterError('');
         setIsLoading(true);
         signOut(auth)
         .then(() => {  })
         .catch(error => {
             if (error) {
-                setFirebaseError(error.code);
+                setLoginError(error.code);
+                setRegisterError(error.code);
+                setGoogleLoginError(error.code);
+                setGoogleRegisterError(error.code);
             }
         })
         .finally(() => {
@@ -149,7 +179,10 @@ const useFirebase = () => {
         isAdmin,
         isAdminLoading,
         isLoading,
-        firebaseError,
+        loginError,
+        registerError,
+        googleLoginError,
+        googleRegisterError,
         setUser,
         setIsLoading,
         setIsAdminLoading,
