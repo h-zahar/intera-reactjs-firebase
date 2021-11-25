@@ -27,7 +27,7 @@ const Banner = () => {
                         </div>
                     </Container>
                 </Carousel.Item>
-                <Carousel.Item interval={8000} style={{transition: 'all 2s ease-in-out', background: `rgba(0, 0, 0, 0.75) url('https://i.ibb.co/bgFhS7J/3.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
+                <Carousel.Item interval={8000} style={{transition: 'all 2s ease-in-out', background: `rgba(0, 0, 0, 0.75) url('https://i.ibb.co/PN4Xhgt/1.jpg') center center fixed`, backgroundSize: 'cover', backgroundBlendMode: 'darken', borderLeft: '2px solid black', borderRight: '2px solid black'}}>
                     <Container style={{minHeight: '500px'}} className="text-light d-flex justify-content-center align-items-center">
                         <div className="text-center">
                             <p className="mb-0">So, here we are.. For you, by you, with you :D</p>
