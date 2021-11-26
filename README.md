@@ -15,3 +15,5 @@ Backend Repo: <a href="https://github.com/programming-hero-web-course-4/niche-we
 * Connected with MongoDB database by Express js server
 * Private route has been applied
 * Admin panel is available
+
+[ Admin Email: admin@admin.com; Admin Password: 123456 ]
