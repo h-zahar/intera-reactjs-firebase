@@ -5,7 +5,7 @@ Live Website: <a href="https://int-era.web.app/">Click Here</a><br />
 This Website is created for Terracotta lovers. It helps millions of people finding their favourite terracotta arts. The available products are displayed synchronously here to make their task easy.<br /><br />
 
 Live API: <a href="https://stark-sierra-52397.herokuapp.com/">Click Here</a><br />
-Backend Repo: <a href="https://github.com/programming-hero-web-course-4/niche-website-server-side-iFall-iFail">Click Here</a><br />
+Backend Repo: <a href="https://github.com/h-zahar/intera-expressjs-mongodb">Click Here</a><br />
 
 ### Basic Info
 
