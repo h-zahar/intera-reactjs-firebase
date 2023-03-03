@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 const ManageOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     useEffect(() => {
-        fetch('https://stark-sierra-52397.herokuapp.com/orders')
+        fetch('https://api-intera.onrender.com/orders')
         .then(res => res.json())
         .then(data => setAllOrders(data))
         .catch(error => {

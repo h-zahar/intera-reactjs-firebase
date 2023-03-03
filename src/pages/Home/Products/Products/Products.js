@@ -5,7 +5,7 @@ import Product from '../Product/Product';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://stark-sierra-52397.herokuapp.com/products/featured')
+        fetch('https://api-intera.onrender.com/products/featured')
         .then(res => res.json())
         .then(data => setProducts(data))
         .catch(error => {

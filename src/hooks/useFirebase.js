@@ -14,7 +14,7 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const sendUserToDatabase = (fetchData) => {
-        fetch('https://stark-sierra-52397.herokuapp.com/users', {
+        fetch('https://api-intera.onrender.com/users', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ const useFirebase = () => {
 
     useEffect(() => {
         setIsAdminLoading(true);
-        fetch(`https://stark-sierra-52397.herokuapp.com/users/${user?.email}`)
+        fetch(`https://api-intera.onrender.com/users/${user?.email}`)
         .then(res => res.json())
         .then(data => setIsAdmin(data?.isAdmin))
         .catch(error => {

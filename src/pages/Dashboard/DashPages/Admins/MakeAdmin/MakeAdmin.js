@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 const MakeAdmin = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch(`https://stark-sierra-52397.herokuapp.com/users/${data.email}`, {
+        fetch(`https://api-intera.onrender.com/users/${data.email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

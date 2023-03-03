@@ -5,7 +5,7 @@ import Review from '../Review/Review';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://stark-sierra-52397.herokuapp.com/reviews')
+        fetch('https://api-intera.onrender.com/reviews')
         .then(res => res.json())
         .then(data => setReviews(data))
         .catch(error => {

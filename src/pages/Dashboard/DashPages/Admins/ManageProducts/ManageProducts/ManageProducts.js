@@ -5,7 +5,7 @@ import ManageProduct from '../ManageProduct/ManageProduct';
 const ManageProducts = () => {
     const [allProducts, setAllProducts] = useState([]);
     useEffect(() => {
-        fetch('https://stark-sierra-52397.herokuapp.com/products')
+        fetch('https://api-intera.onrender.com/products')
         .then(res => res.json())
         .then(data => setAllProducts(data))
         .catch(error => {

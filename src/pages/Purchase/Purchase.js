@@ -22,7 +22,7 @@ const Purchase = () => {
     const onSubmit = data => {
         data.isShipped = false;
         
-        fetch('https://stark-sierra-52397.herokuapp.com/orders', {
+        fetch('https://api-intera.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const Purchase = () => {
     }
 
     useEffect(() => {
-        fetch(`https://stark-sierra-52397.herokuapp.com/products/${id}`)
+        fetch(`https://api-intera.onrender.com/products/${id}`)
         .then(res => res.json())
         .then(data => setProductDetails(data))
         .catch(error => {

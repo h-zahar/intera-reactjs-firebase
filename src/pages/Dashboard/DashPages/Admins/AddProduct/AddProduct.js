@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const AddProduct = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('https://stark-sierra-52397.herokuapp.com/products', {
+        fetch('https://api-intera.onrender.com/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

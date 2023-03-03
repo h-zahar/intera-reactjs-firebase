@@ -9,7 +9,7 @@ const ManageProduct = (props) => {
             return;
         }
 
-        fetch(`https://stark-sierra-52397.herokuapp.com/products/${id}`, {
+        fetch(`https://api-intera.onrender.com/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'Application/json'
